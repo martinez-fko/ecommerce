@@ -1,165 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./assets/css/styles.css">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
     <title>Ecommerce</title>
-</head>
-<body>
+  </head>
+  <body>
 
-    <nav class="nav-principal">
+
+    <header class="container">
+      <nav class="nav-principal">
         <div class="nav-principal__left">
-            <svg viewBox="0 0 48.92 56.48" class="nav__logo-icon">
-                <title>Academlo Logo</title>
-                <g>
-                    <path
-                    d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z">
-                    </path>
-                </g>
-            </svg>
-            <h3>STORE</h3>
+          <svg viewBox="0 0 48.92 56.48" class="nav__logo-icon">
+            <title>Academlo Logo</title>
+            <g>
+              <path
+                d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z"
+              ></path>
+            </g>
+          </svg>
+          <h3>STORE</h3>
         </div>
         <div class="nav-principal__right">
-            <i class='bx bx-moon bx-sm' id="btn-theme"></i>
-            <i class='bx bx-shopping-bag bx-sm'></i>
-            <i class='bx bx-grid-alt bx-sm'></i>
+          <i class="bx bx-moon bx-sm" id="btn-theme"></i>
+          <i class="bx bx-shopping-bag bx-sm"></i>
+          <i class="bx bx-grid-alt bx-sm"></i>
         </div>
-    </nav>
-    <!-- termina seccion de la nav -->
+      </nav>
+      <!-- termina seccion de la nav -->
 
-    <section class="box-producto">
+      <section class="box-producto">
         <div class="box-producto__img">
-            <img src="./assets/images/home.png" alt="Producto">
+          <img src="./assets/images/home.png" alt="Producto" />
         </div>
         <div class="box-producto__info">
-            <h2>New Sweatshirt</h2>
-            <h2>COLLECTIONS 2022</h2>
+          <h2>New Sweatshirt</h2>
+          <h2>COLLECTIONS 2022</h2>
 
-            <p>Lastest arrival of the new Hanes Midweight</p>
-            <p>Crewneck sweatshirt imported from the 2002 series, with a modern desing</p>
-            <p class="box-producto__precio">$ 14.00</p>
+          <p>Lastest arrival of the new Hanes Midweight</p>
+          <p>
+            Crewneck sweatshirt imported from the 2002 series, with a modern
+            desing
+          </p>
+          <p class="box-producto__precio">$ 14.00</p>
 
-            <div>
-                <button class="box-producto__btn-discover">Discover</button>
-                <button class="box-producto__btn-add">ADD TO CART</button>
-            </div>
+          <div>
+            <button class="box-producto__btn-discover">Discover</button>
+            <button class="box-producto__btn-add">ADD TO CART</button>
+          </div>
         </div>
-    </section>
+      </section>
+    </header>
+
     <!-- Termina la seccion de producto principal -->
 
     <section class="categorias">
+      <div class="container">
         <div class="categorias__filtros">
-            <div class="categorias__btn">
-                <h3>Show all</h3>
-                <p>show all products</p>
-            </div>  
-            <div class="categorias__btn">
-                <h3>Hoodies</h3>
-                <p>3 products</p>
-            </div>
-            <div class="categorias__btn">
-                <h3>Shirts</h3>
-                <p>4 products</p>
-            </div>
-            <div class="categorias__btn">
-                <h3>Sweatshirts</h3>
-                <p>4 products</p>
-            </div>
+          <div class="categorias__btn">
+            <h3>Show all</h3>
+            <p>show all products</p>
+          </div>
+          <div class="categorias__btn">
+            <h3>Hoodies</h3>
+            <p>3 products</p>
+          </div>
+          <div class="categorias__btn">
+            <h3>Shirts</h3>
+            <p>4 products</p>
+          </div>
+          <div class="categorias__btn">
+            <h3>Sweatshirts</h3>
+            <p>4 products</p>
+          </div>
         </div>
         <div class="categorias__result">
-            <div class="categorias__item-producto">
-                <div class="categorias__box-img">
-                    <img src="./assets/images/featured1.png" alt="">
-                    <button>+</button>
-                </div>
-                <div class="categorias__box-info">
-                    <p>$14.00 <small> | Stock: 1</small></p>
-                    <p>Hoodies</p>
-                </div>
+          <div class="categorias__item-producto">
+            <div class="categorias__box-img">
+              <img src="./assets/images/featured1.png" alt="" />
+              <button>+</button>
             </div>
-            <div class="categorias__item-producto">
-                <div class="categorias__box-img">
-                    <img src="./assets/images/featured2.png" alt="">
-                    <button>+</button>
-                </div>
-                <div class="categorias__box-info">
-                    <p>$14.00 <small> | Stock: 1</small></p>
-                    <p>Hoodies</p>
-                </div>
+            <div class="categorias__box-info">
+              <p>$14.00 <small> | Stock: 1</small></p>
+              <p>Hoodies</p>
             </div>
-            <div class="categorias__item-producto">
-                <div class="categorias__box-img">
-                    <img src="./assets/images/featured3.png" alt="">
-                    <button>+</button>
-                </div>
-                <div class="categorias__box-info">
-                    <p>$14.00 <small> | Stock: 1</small></p>
-                    <p>Hoodies</p>
-                </div>
+          </div>
+          <div class="categorias__item-producto">
+            <div class="categorias__box-img">
+              <img src="./assets/images/featured2.png" alt="" />
+              <button>+</button>
             </div>
+            <div class="categorias__box-info">
+              <p>$14.00 <small> | Stock: 1</small></p>
+              <p>Hoodies</p>
+            </div>
+          </div>
+          <div class="categorias__item-producto">
+            <div class="categorias__box-img">
+              <img src="./assets/images/featured3.png" alt="" />
+              <button>+</button>
+            </div>
+            <div class="categorias__box-info">
+              <p>$14.00 <small> | Stock: 1</small></p>
+              <p>Hoodies</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
     <!-- Termina la sección de categorías  -->
 
-
     <footer class="footer">
+      <div class="container">
         <div class="footer__our-information">
-            <h3>Our information</h3>
-            <p>Toluca - Mexico</p>
+          <h3>Our information</h3>
+          <p>Toluca - Mexico</p>
         </div>
         <div class="footer__about-us">
-            <h3>About Us</h3>
-            <ul>
-                <li>
-                    <a href="" class="btn">Support Center</a>
-                </li>
-                <li>
-                    <a href="" class="btn">Customer Support</a>
-                </li>
-                <li>
-                    <a href="" class="btn">About Us</a>
-                </li>
-                <li>
-                    <a href="" class="btn">Copy Right</a>
-                </li>
-            </ul>
+          <h3>About Us</h3>
+          <ul>
+            <li>
+              <a href="" class="btn">Support Center</a>
+            </li>
+            <li>
+              <a href="" class="btn">Customer Support</a>
+            </li>
+            <li>
+              <a href="" class="btn">About Us</a>
+            </li>
+            <li>
+              <a href="" class="btn">Copy Right</a>
+            </li>
+          </ul>
         </div>
         <div class="footer__product">
-            <h3>Product</h3>
-            <ul>
-                <li>
-                    <a href="" class="link">Hoodies</a>
-                </li>
-                <li>
-                    <a href="" class="link">Shirts</a>
-                </li>
-                <li>
-                    <a href="" class="link">Sweatshirt</a>
-                </li>
-            </ul>
+          <h3>Product</h3>
+          <ul>
+            <li>
+              <a href="" class="link">Hoodies</a>
+            </li>
+            <li>
+              <a href="" class="link">Shirts</a>
+            </li>
+            <li>
+              <a href="" class="link">Sweatshirt</a>
+            </li>
+          </ul>
         </div>
         <div class="footer__social">
-            <h3>Social</h3>
-            <div class="footer__box-social">
-                <div class="social__icon">
-                    <img src="./assets/images/favicon.png" alt="">
-                </div>
-                <div class="social__icon">
-                    <img src="./assets/images/favicon.png" alt="">
-                </div>
-                <div class="social__icon">
-                    <img src="./assets/images/favicon.png" alt="">
-                </div>
+          <h3>Social</h3>
+          <div class="footer__box-social">
+            <div class="social__icon">
+                <i class='bx bxl-facebook bx-sm'></i>
             </div>
+            <div class="social__icon">
+                <i class='bx bxl-twitter bx-sm' ></i>
+            </div>
+            <div class="social__icon">
+                <i class='bx bxl-instagram bx-sm'></i>
+            </div>
+          </div>
         </div>
         <div class="footer__copyright">
-            <p> <span>Academlo.</span> All rights reserved.</p>
+          <p><span>Academlo.</span> All rights reserved.</p>
         </div>
+      </div>
     </footer>
     <!-- Termina el footer -->
     <script src="/assets/js/main.js"></script>
-</body>
+  </body>
 </html>

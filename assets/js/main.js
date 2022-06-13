@@ -15,3 +15,13 @@ btnTheme.addEventListener("click" , () => {
     }
 
 })
+
+let header = document.querySelector(".naav-principal")
+
+window.addEventListener("scroll", () => {
+
+    if( window.scrollY > 60 ){
+       
+    }
+})
+
