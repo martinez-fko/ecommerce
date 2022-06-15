@@ -14,7 +14,7 @@
   <body>
 
 
-    <header class="container">
+    <header>
       <nav class="nav-principal">
         <div class="nav-principal__left">
           <svg viewBox="0 0 48.92 56.48" class="nav__logo-icon">
@@ -33,41 +33,46 @@
         </div>
         <div class="nav-principal__right">
           <i class="bx bx-moon bx-sm" id="btn-theme"></i>
-          <i class="bx bx-shopping-bag bx-sm"></i>
+          <i class="bx bx-shopping-bag bx-sm" id="cart-icon">
+            <span class="cart-count-icon">0</span>
+          </i>
           <i class="bx bx-grid-alt bx-sm" id="menu"></i>
         </div>
       </nav>
       <!-- termina seccion de la nav -->
+    </header>
 
-      <section class="box-producto">
+
+    <section class="container">
+      <div class="box-producto">
         <div class="box-producto__img">
           <img src="./assets/images/home.png" alt="Producto" />
         </div>
         <div class="box-producto__info">
           <h2>New Sweatshirt</h2>
           <h2>COLLECTIONS 2022</h2>
-
+          
           <p>Lastest arrival of the new Hanes Midweight</p>
           <p>
             Crewneck sweatshirt imported from the 2002 series, with a modern
             desing
           </p>
           <p class="box-producto__precio">$ 14.00</p>
-
+          
           <div class="box-producto__box-botones">
             <button class="box-producto__btn-discover">Discover</button>
             <button class="box-producto__btn-add">ADD TO CART</button>
           </div>
         </div>
-      </section>
-    </header>
+      </div>
+    </section>
 
     <!-- Termina la seccion de producto principal -->
 
     <section class="categorias">
       <div class="container">
         <div class="categorias__filtros">
-          <div class="categorias__btn">
+          <!-- <div class="categorias__btn">
             <h3>Show all</h3>
             <p>show all products</p>
           </div>
@@ -82,13 +87,13 @@
           <div class="categorias__btn">
             <h3>Sweatshirts</h3>
             <p>4 products</p>
-          </div>
+          </div> -->
         </div>
         <div class="categorias__result">
-          <div class="categorias__item-producto">
+          <!-- <div class="categorias__item-producto">
             <div class="categorias__box-img">
               <img src="./assets/images/featured1.png" alt="" />
-              <button>+</button>
+              <button><i class='bx bx-plus bx-sm'></i></button>
             </div>
             <div class="categorias__box-info">
               <p>$14.00 <small> | Stock: 1</small></p>
@@ -114,7 +119,7 @@
               <p>$14.00 <small> | Stock: 1</small></p>
               <p>Hoodies</p>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -177,6 +182,19 @@
       </div>
     </footer>
     <!-- Termina el footer -->
+
+
+    <div class="container-cart">
+        <div class="cart-shopping">
+          <i class="bx bx-x bx-md cart-close" id="cart-close"></i>
+          <div class="cart-list">
+              
+          </div>
+        </div>
+    </div>
+
+
+
     <script src="/assets/js/main.js"></script>
   </body>
 </html>

@@ -1,10 +1,13 @@
 
-let header = document.querySelector(".naav-principal")
+let header = document.querySelector("header")
 
 window.addEventListener("scroll", () => {
 
     if( window.scrollY > 60 ){
-       
+      header.classList.add("scroll-header")
+      console.log(window.scrollY);
+    }else{
+        header.classList.remove("scroll-header")
     }
 })
 
@@ -22,6 +25,21 @@ btnTheme.addEventListener("click" , () => {
     } else {
         btnTheme.classList.replace('bx-sun' ,'bx-moon')
     }
+
+})
+
+let btnOpenCart = document.querySelector("#cart-icon")
+let btnClosedCart = document.querySelector("#cart-close")
+let containerCart = document.querySelector(".container-cart")
+let containerProductos = document.querySelector(".categorias__result")
+
+
+btnOpenCart.addEventListener("click" , () => {
+  containerCart.classList.add("mostrar")
+})
+
+btnClosedCart.addEventListener("click" ,() => {
+  containerCart.classList.remove("mostrar")
 
 })
 
@@ -60,25 +78,16 @@ const items = [
       category: 'sweatshirts',
       quantity: 10
     }
-    ,
-    {
-      id: 5,
-      name: 'Sweatshirts',
-      price: 30.00,
-      image: 'https://academlo-store.netlify.app/assets/img/featured3.png',
-      category: 'sweatshirts',
-      quantity: 10
-    }
-]
 
-// 1 buscar cuantas categorias hay en el arreglo
-// 2 contar cuantos elementos hay en cada categoria
+]
 
 
 let ProductosXCategoria = [] // Array para guardar cuantos productos hay por categoria
 
 document.addEventListener("DOMContentLoaded", () => {
     totalProductosPorCategoria()
+    mostrarProductos("All")
+    mostarProductosCart()
 })
 
 
@@ -93,7 +102,6 @@ function totalProductosPorCategoria(){
             ProductosXCategoria[categorias] = 1
           }   
   })
-  
   mostrarCategorias()
 }
 
@@ -101,7 +109,7 @@ function mostrarCategorias(){
 
 let boxFiltro = document.querySelector(".categorias__filtros")
 let fragment = `
-                <div class="categorias__btn">
+                <div class="categorias__btn" data-categoria="All">
                     <h3>Show all</h3>
                     <p>show all products</p>
                 </div>
@@ -109,7 +117,7 @@ let fragment = `
 
       for (const key in ProductosXCategoria) {
       fragment += `
-                <div class="categorias__btn" data>
+                <div class="categorias__btn" data-categoria=${key}>
                     <h3>${key}</h3>
                     <p>${ProductosXCategoria[key]} products</p>
                 </div>
@@ -117,37 +125,152 @@ let fragment = `
     }
 
     boxFiltro.innerHTML = fragment
- 
+    eventbtnCategoria()
 }
 
-mostrarProductoFiltrado("sweatshirts")
+function eventbtnCategoria(){
+  
+  let btncategoria = document.querySelectorAll(".categorias__btn")
+  btncategoria.forEach((category)=>{
 
-function mostrarProductoFiltrado(filtro){
-
-  items.forEach( (productos) => {
-
-    if(productos.category === filtro){
-      console.log(productos);
-    }
-
+        category.addEventListener("click", ()=>{
+             let filtro = category.getAttribute("data-categoria")
+             mostrarProductos(filtro)
+        })
   })
 
-} 
+}
+
+
+//mostar productos 
+function mostrarProductos(filtro){
+
+  let fragment = ``
+
+  items.map( (producto) => {
+
+      if( producto.category === filtro){
+        fragment += `
+                <div class="categorias__item-producto" data-categoria="${producto.category}">
+                  <div class="categorias__box-img">
+                    <img src=${producto.image} alt="" />
+                    <button class="btn-add-producto" data-id=${producto.id}><i class='bx bx-plus bx-sm'></i></button>
+                  </div>
+                  <div class="categorias__box-info">
+                    <p> $ ${producto.price} <small> | Stock: ${producto.quantity}</small></p>
+                    <p>${producto.name}</p>
+                  </div>
+                </div>
+        `
+      }
+      if( filtro === "All"){
+        fragment += `
+        <div class="categorias__item-producto" data-categoria="${producto.category}">
+          <div class="categorias__box-img">
+            <img src=${producto.image} alt="" />
+            <button class="btn-add-producto" data-id=${producto.id}><i class='bx bx-plus bx-sm'></i></button>
+          </div>
+          <div class="categorias__box-info">
+            <p> $ ${producto.price} <small> | Stock: ${producto.quantity}</small></p>
+            <p>${producto.name}</p>
+          </div>
+        </div>
+          `
+      }
+
+  })
+  containerProductos.innerHTML = fragment
+  eventoBtnAddProducto()
+}
+
+
+//Guardamos el contenedor de los productor agregados al carrito
+let carList = document.querySelector(".cart-list")
+//declaramos nuestro carrito vacio
+let cart = []
+//guardamos el contenedor de cart count
+let carcount = document.querySelector(".cart-count-icon")
+
+function eventoBtnAddProducto(){
+
+  //obtenemos todos los botones en un arreglo 
+  let btnAddProducto = document.querySelectorAll(".btn-add-producto")
+  //iteramos el arreglo de buttons
+  btnAddProducto.forEach( (button) =>{
+    //agregamos a cada boton el event listener
+    button.addEventListener( "click" , () => {
+      //obtenemos el atributo id del boton
+      let id = parseInt( button.getAttribute("data-id"))
+      //obtenemos la información del objeto con el id del arreglo items
+      let producto = items.find( item => item.id === id )
+      //llamo a la funcion para agregar el producto al carrito y paso el parametro producto
+      agregarProducto(producto)
+    })
+  })
+
+}
+
+
+function agregarProducto(producto){
+  let cartlocal = JSON.parse(localStorage.getItem("cart"))
+  if(cartlocal){
+    cart = cartlocal
+  }
+
+ let productofind = cart.find( item => item.id == producto.id )
+
+ if( productofind){
+    cart[productofind.index].quantitySelected += 1
+ }else{
+    producto.quantitySelected = 1
+    producto.index = cart.length
+    cart.push(producto)
+   
+ }
+ localStorage.setItem("cart" ,  JSON.stringify(cart))
+  mostarProductosCart()
+}
 
 
 
+function mostarProductosCart(){
 
-// categorias.forEach( (categoria) => {
-//     let producto = categoria
+  let fragmentoHTML = ``
+  let suma = 0
+  let cantidadTotal = 0
+  let productsStorage = JSON.parse(localStorage.getItem("cart"))
+  if(productsStorage){
+    productsStorage.forEach( (producto)=>{
+      fragmentoHTML += `
+        <div class="cart-item">
+              <img src=${producto.image} alt="">
+              <p>${producto.name}</p>
+              <small>Cantidad: ${producto.quantitySelected}</small>
+          </div>
+        `
+        let totalProducto = producto.quantitySelected * producto.price
+        suma += totalProducto
+        cantidadTotal += producto.quantitySelected
+    })
 
-//     if(totalProductos[producto]){
-//         totalProductos[producto] +=1
-//     }else{
-//         totalProductos[producto] = 1
-//     }   
-    
-// })
+    fragmentoHTML += `
+    <div class="cart-price">
+        <p>Productos seleccionados:${ cantidadTotal }</p>
+        <p>Total $${ suma }</p>
+    </div>
+    `
 
+  }else{
+    fragmentoHTML = `
+              <div class="carrito-vacio">
+                <img src="./assets/images/empty-cart.png" alt="">
+                <h5>Aun no has agregado ningun producto a tu carrito</h5>
+              </div>`
+  }
 
+  carList.innerHTML = fragmentoHTML
+  carcount.textContent = cantidadTotal
+
+}
 
 
