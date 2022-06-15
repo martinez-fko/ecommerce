@@ -257,6 +257,7 @@ function mostarProductosCart(){
     <div class="cart-price">
         <p>Productos seleccionados:${ cantidadTotal }</p>
         <p>Total $${ suma }</p>
+        <button class="btn_comprar">Comprar</button>
     </div>
     `
 

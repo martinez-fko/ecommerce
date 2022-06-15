@@ -359,6 +359,15 @@ header.scroll-header{
   grid-row: 1 /3;
 }
 
+.btn_comprar{
+  cursor: pointer;
+  height: 30px;
+  width: 200px;
+  margin-top: 1rem;
+  background-color: black;
+  border: transparent;
+color: white;
+}
 
 
 /* estilos para tablets */
