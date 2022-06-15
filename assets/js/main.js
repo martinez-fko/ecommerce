@@ -74,19 +74,30 @@ const items = [
 // 1 buscar cuantas categorias hay en el arreglo
 // 2 contar cuantos elementos hay en cada categoria
 
-let categorias = items.map( (categorias) => categorias.category )
-let totalProductos = {}
 
-categorias.forEach( (categoria) => {
-    let producto = categoria
+let ProductosXCategoria = [] // Array para guardar cuantos productos hay por categoria
 
-    if(totalProductos[producto]){
-        totalProductos[producto] +=1
-    }else{
-        totalProductos[producto] = 1
-    }   
-    
+document.addEventListener("DOMContentLoaded", () => {
+    totalProductosPorCategoria()
 })
+
+
+function totalProductosPorCategoria(){
+  //funcion que realiza el conteo de todos los productos por categoria
+  let totalCategorias = items.map( (item) => item.category) //obtenemos un array de todas las categorias
+  totalCategorias.forEach( (categorias) =>{
+  
+    if(ProductosXCategoria[categorias]){
+      ProductosXCategoria[categorias] +=1
+          }else{
+            ProductosXCategoria[categorias] = 1
+          }   
+  })
+  
+  mostrarCategorias()
+}
+
+function mostrarCategorias(){
 
 let boxFiltro = document.querySelector(".categorias__filtros")
 let fragment = `
@@ -94,18 +105,49 @@ let fragment = `
                     <h3>Show all</h3>
                     <p>show all products</p>
                 </div>
-                `
+              `
 
-for (const key in totalProductos) {
-  console.log(totalProductos[key]);
-  fragment += `
-            <div class="categorias__btn">
-                <h3>${key}</h3>
-                <p>${totalProductos[key]} products</p>
-            </div>
-  `
+      for (const key in ProductosXCategoria) {
+      fragment += `
+                <div class="categorias__btn" data>
+                    <h3>${key}</h3>
+                    <p>${ProductosXCategoria[key]} products</p>
+                </div>
+              `
+    }
+
+    boxFiltro.innerHTML = fragment
+ 
 }
 
-boxFiltro.innerHTML = fragment
+mostrarProductoFiltrado("sweatshirts")
+
+function mostrarProductoFiltrado(filtro){
+
+  items.forEach( (productos) => {
+
+    if(productos.category === filtro){
+      console.log(productos);
+    }
+
+  })
+
+} 
+
+
+
+
+// categorias.forEach( (categoria) => {
+//     let producto = categoria
+
+//     if(totalProductos[producto]){
+//         totalProductos[producto] +=1
+//     }else{
+//         totalProductos[producto] = 1
+//     }   
+    
+// })
+
+
 
 
