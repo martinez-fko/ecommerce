@@ -1,47 +1,9 @@
-
-let header = document.querySelector("header")
-
-window.addEventListener("scroll", () => {
-
-    if( window.scrollY > 60 ){
-      header.classList.add("scroll-header")
-      console.log(window.scrollY);
-    }else{
-        header.classList.remove("scroll-header")
-    }
-})
+import { darkTheme } from './modules/themeDark.js'
+import { scrollNav } from './modules/scrollNav.js'
+import { fcart } from './modules/Cart.js' 
 
 
-let theme = document.querySelector("body")
-let btnTheme = document.querySelector("#btn-theme")
-
-btnTheme.addEventListener("click" , () => {
-    theme.classList.toggle("dark")
-
-    let activo = btnTheme.classList.contains("bx-moon")
-
-    if (activo) {
-        btnTheme.classList.replace('bx-moon', 'bx-sun')
-    } else {
-        btnTheme.classList.replace('bx-sun' ,'bx-moon')
-    }
-
-})
-
-let btnOpenCart = document.querySelector("#cart-icon")
-let btnClosedCart = document.querySelector("#cart-close")
-let containerCart = document.querySelector(".container-cart")
 let containerProductos = document.querySelector(".categorias__result")
-
-
-btnOpenCart.addEventListener("click" , () => {
-  containerCart.classList.add("mostrar")
-})
-
-btnClosedCart.addEventListener("click" ,() => {
-  containerCart.classList.remove("mostrar")
-
-})
 
 // Funciones para los productos
 
@@ -85,6 +47,9 @@ const items = [
 let ProductosXCategoria = [] // Array para guardar cuantos productos hay por categoria
 
 document.addEventListener("DOMContentLoaded", () => {
+    darkTheme()
+    scrollNav()
+    fcart()
     totalProductosPorCategoria()
     mostrarProductos("All")
     mostarProductosCart()
